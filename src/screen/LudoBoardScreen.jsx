@@ -4,7 +4,10 @@ import Dice from '../components/Dice'
 import { Colors } from '../constants/Colors'
 import { color } from 'framer-motion'
 import Pocket from '../components/Pocket'
-import { VerticalPath } from '../components/VerticalPath'
+import VerticalPath from '../components/VerticalPath'
+import { plot1Data, plot2Data, plot3Data, plot4Data } from '../helper/PlotData'
+import HorizontalPath from '../components/HorizontalPath'
+import FourTrangle from '../components/FourTrangle'
 
 const LudoBoardScreen = () => {
   return (
@@ -31,13 +34,31 @@ const LudoBoardScreen = () => {
 
         </div>
         {/* ludoBoard  */}
-        <div className='w-full h-full  items-center p-3 bg-red-600 '>
-          <div className='w-full h-2/5 justify-between  flex-row bg-[#ccc]'>
-          <Pocket color={Colors.green} player={2}/>
-          <VerticalPath color={Colors.yellow} />
+        <div className='w-full h-full  items-center p-3  '>
+          <div className='w-full h-2/5 justify-between flex flex-row bg-[#ccc]'>
+            <Pocket color={Colors.green} player={2} />
+            <VerticalPath
+              cells={plot2Data}
+              color={Colors.yellow} />
+            <Pocket color={Colors.yellow} player={3} />
+          </div>
+          <div className='flex flex-row  w-full h-[20%] justify-between bg-[#1E5162]'>
+            <HorizontalPath cells={plot1Data} color={Colors.green}/>
+            <FourTrangle/>
+            <HorizontalPath cells={plot3Data} color={Colors.blue}/>
+
 
           </div>
-       
+          <div  className='w-full h-2/5 justify-between flex flex-row bg-[#ccc]'>
+
+          <Pocket color={Colors.red} player={1} />
+            <VerticalPath
+              cells={plot4Data}
+              color={Colors.red} />
+            <Pocket color={Colors.blue} player={4} />
+
+          </div>
+
 
         </div>
         <div className='flex justify-between items-center px-10'>

@@ -2,7 +2,7 @@ import React from 'react'
 import { BackzgroundImage } from '../helper/GetIcon'
 import { motion } from 'framer-motion'
 
-export const Pile = ({ color, player }) => {
+export const Pile = ({ color, cell,player, onPress,pieceId }) => {
   const pileImg = BackzgroundImage.GetImage(color)
   return (
 
