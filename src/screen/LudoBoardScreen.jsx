@@ -10,6 +10,7 @@ import HorizontalPath from '../components/HorizontalPath'
 import FourTrangle from '../components/FourTrangle'
 
 const LudoBoardScreen = () => {
+  const player1 = useSelector()
   return (
     <Wrapper>
       {/* Menu Icon Button */}

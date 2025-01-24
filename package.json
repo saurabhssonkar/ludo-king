@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@reduxjs/toolkit": "^2.5.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.18.0",
     "lottie-react": "^2.4.0",
