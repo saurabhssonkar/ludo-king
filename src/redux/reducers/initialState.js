@@ -36,7 +36,7 @@ export const initialState ={
     isDiceRolled:false,
     pileSelectionPlayer:-1,
     cellSelectionPlayer:-1,
-    touchDIceBlock:false,
+    touchDiceBlock:false,
     currentPositions:[],
     fireworks:false,
     winner:null
