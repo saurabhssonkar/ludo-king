@@ -63,11 +63,11 @@ const LudoBoardScreen = () => {
         {/* ludoBoard  */}
         <div className='w-full h-full  items-center p-3  '>
           <div className='w-full h-2/5 justify-between flex flex-row bg-[#ccc]'>
-            <Pocket color={Colors.green} player={2} />
+            <Pocket color={Colors.green} player={2}  data={player2}/>
             <VerticalPath
               cells={plot2Data}
               color={Colors.yellow} />
-            <Pocket color={Colors.yellow} player={3} />
+            <Pocket color={Colors.yellow} player={3} data={player3} />
           </div>
           <div className='flex flex-row  w-full h-[20%] justify-between bg-[#1E5162]'>
             <HorizontalPath cells={plot1Data} color={Colors.green} />
@@ -78,11 +78,11 @@ const LudoBoardScreen = () => {
           </div>
           <div className='w-full h-2/5 justify-between flex flex-row bg-[#ccc]'>
 
-            <Pocket color={Colors.red} player={1} />
+            <Pocket color={Colors.red} player={1}  data={player1}/>
             <VerticalPath
               cells={plot4Data}
               color={Colors.red} />
-            <Pocket color={Colors.blue} player={4} />
+            <Pocket color={Colors.blue} player={4} data={player4} />
 
           </div>
 

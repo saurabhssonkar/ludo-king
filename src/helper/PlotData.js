@@ -21,6 +21,9 @@ export const SafeSpots = [
     221,222,223,224,225,14,27,331,332,333,334,335,40,441,442,443,444,445,1,111,112,113,114,115
    
 ]
+export const startingPoint = [
+    1,14,27,40
+]
 
 export const StarSport = [
    9,22,36,48

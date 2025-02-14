@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentPlayerChance, selectDiceNo, selectDiceRolled } from '../redux/reducers/gameSelector';
 import { enableCellSelection, enablePileSelection, updateDiceNo, updatePlayerChance } from '../redux/reducers/gameSlice';
+import { playSound } from '../helper/SoundUtility';
 
 const Dice = ({ color, rotate, player,data}) => {
     const dispatch = useDispatch();
@@ -17,13 +18,15 @@ const Dice = ({ color, rotate, player,data}) => {
 
     const pileIcon = BackzgroundImage.GetImage(color)
     const diceIcon = BackzgroundImage.GetImage(isDiceNo);
-    console.log("@@@@@@@@@@@@@@",diceIcon,isDiceNo)
     const arrowAnim = useRef(null);
     const [diceRolling, setDiceRolling] = useState(false);
 
   const delay = ms=>new Promise(resolve=> setTimeout(resolve,ms))
     const handleDicePress =async()=>{
-        const newDiceNo = Math.floor(Math.random()*6)+1;
+        // const newDiceNo = Math.floor(Math.random()*6)+1;
+        const newDiceNo = 6;
+
+        playSound("dice_roll");
         setDiceRolling(true);
         await(delay(800));
         dispatch(updateDiceNo({diceNo:newDiceNo}));
@@ -90,7 +93,7 @@ const Dice = ({ color, rotate, player,data}) => {
                 <div className='bg-[#e8c0c1] border-2 rounded-md w-14 h-14  p-2
                  items-center justify-center '>
                     {currentPlayerChance === player && !diceRolling && (
-                        <button className='w-9 h-9'  disabled={!isDiceRolled}>
+                        <button className='w-9 h-9' >
                             <img src={diceIcon} 
                            
                             onClick={handleDicePress}
@@ -104,7 +107,7 @@ const Dice = ({ color, rotate, player,data}) => {
                 </div>
             </div>
 
-            {currentPlayerChance === player && !diceRolling &&
+            {currentPlayerChance === player && !isDiceRolled &&
 
                 <motion.img
                     className="w-[50px] h-[30px]"
